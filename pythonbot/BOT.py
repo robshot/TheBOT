@@ -4,10 +4,11 @@ import random
  
 channel = "#pythonbottest"
 server = "178.118.237.238"
+port = 5000
 nickname = "TheBOT"
  
 irc = IRC()
-irc.connect(server, channel, nickname)
+irc.connect(server, port, channel, nickname)
  
  
 while 1:
