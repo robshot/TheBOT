@@ -24,18 +24,19 @@ sock.send(('JOIN '+CHANNEL + "\r\n").encode())
 sock.send(('PRIVMSG '+CHANNEL+" :This is a test.\r\n").encode())
 print('Server connection succeeded!')
 
-#def main():
+def main():
+	print('Main loop')
 	while True:
 #		Send(CHANNEL,'Test')
 #		received = sock.recv(2048).decode('latin1')
 #		received = received[:len(received)-len('\r\n')]
 #		print(received)
 #		Send(CHANNEL,'Testje')
-		import time
-		time.sleep(5)		
-		
-   		text=sock.recv(2040)  #receive the text
-   		print text   #print text to console
+#		import time
+#		time.sleep(5)		
+#		print('Listening...')
+   		text = sock.recv(2048).decode('UTF-8')
+   		print(text)   #print text to console
 
 	   	if text.find('PING') != -1:                          #check if 'PING' is found
       			sock.send(('PONG ' + text.split() [1] + '\r\n').encode()) #returnes 'PONG' back to the server (prevents pinging out!)	
@@ -51,3 +52,4 @@ print('Server connection succeeded!')
 #				continue					
 #if __name__ == "__main__":
 #	main()
+main()
