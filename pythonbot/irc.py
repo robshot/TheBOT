@@ -15,6 +15,7 @@ class IRC:
         #defines the socket
         print "connecting to:"+server
         self.irc.connect((server, port))
+        self.irc.send("quote PASS " + botnick + ":Testn")
         self.irc.send("USER " + botnick + " " + botnick +" " + botnick + " :This is a fun bot!n")
         self.irc.send("NICK " + botnick + "n")               
         self.irc.send("JOIN " + channel + "n")
